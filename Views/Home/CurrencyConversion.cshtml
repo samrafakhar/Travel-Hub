@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "CurrencyConversion";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <img src="/Content/image/Webp.net-resizeimage.png" style="width:400px;length:300px;display: block;margin-left: auto; margin-right: auto" />
+    <br /><br />
+    Enter Amount in PKR: &nbsp;&nbsp;
+	<input type="number" oninput="Calculate()" class="form-control" id="value1"/>
+	<br /><br />
+	<div class="form-group">
+		<select onchange="Currency(); Calculate()" class="form-control" id="converter" style="width:30%;">
+			<option value="Dollar">Dollar</option>
+			<option value="Pound">Pound</option>
+			<option value="Euro">Euro</option>
+			<option value="Yen">Yen</option>
+			<option value="Yuan">Yuan</option>
+		</select>
+		<br />
+	</div>
+	<br /><br />
+	<div class="form-group">
+		<label>your bill in desired currency is</label>
+		<input type="number" class="form-control" id="value2" disabled="disabled"/>
+	</div>
+    <br /><br />
+    <button type="button" onclick="window.location.href = 'http://localhost:60555/Home/HomePage';">Home</button>
+</body>
+    </html>
+    <style>
+
+        html, body {
+        background-color: lightgray;
+    }
+         button {
+  background-color: #F15921;
+  color: #222222;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 150px;
+  opacity: 0.9;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  text-align: top-center;
+}
+        input[type=number] {
+            color: #777;
+            padding-left: 10px;
+            margin: 10px;
+            margin-top: 12px;
+            margin-left: 18px;
+            width: 290px;
+            height: 35px;
+	        border: 1px solid #c7d0d2;
+            border-radius: 2px;
+        -webkit-transition: all .4s ease;
+            -moz-transition: all .4s ease;
+            transition: all .4s ease;
+	        }
+
+       
+    </style>
+
+<script>
+function Currency(){
+		y = document.getElementById("converter").value;
+		return y;
+	}
+ 
+function Calculate(){
+	y = Currency();
+ 
+	x = document.getElementById("value1").value;
+ 
+	if(x == ""){
+		document.getElementById("value2").value = "";
+	}else{
+		switch(y){
+			case "Dollar":
+				document.getElementById("value2").value = x * 0.0071;
+			break;
+ 
+			case "Pound":
+				document.getElementById("value2").value = x * 0.0054;
+			break;
+ 
+			case "Euro":
+				document.getElementById("value2").value = x * 0.0063;
+			break;
+ 
+			case "Yen":
+				document.getElementById("value2").value = x * 0.78;
+			break;
+ 
+			case "Yuan":
+				document.getElementById("value2").value = x * 0.048;
+			break;
+		}
+	}
+}
+</script>

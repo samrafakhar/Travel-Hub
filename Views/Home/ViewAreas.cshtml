@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "ViewAreas";
+}
+
+@model System.Data.SqlClient.SqlDataReader 
+@{
+    System.Data.SqlClient.SqlDataReader reader = Model;
+}
+
+
+
+<div class="topnav">
+  <a  href="http://localhost:60555/Home/HomePage">Home</a>
+  <a  href="http://localhost:60555/Home/Profile">Profile</a>
+    <a class="active" href="http://localhost:60555/Home/ViewAreas">View Areas</a>
+    <a href="http://localhost:60555/Home/CreateTour">Create Tour</a>
+  <a href="http://localhost:60555/Home/ViewTours">Select Tour</a>
+   <a href="http://localhost:60555/Home/CalculateBill">Reservation</a>
+    <a href="http://localhost:60555/Home/Ratings">Ratings</a>
+    <a href="http://localhost:60555/Home/Feedback">Feedback</a>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+<html>
+     <body style="background: url(/Content/image/snowy-alps-wallpapers-62303-7982389.png);background-repeat: repeat-y">
+
+         <img src="/Content/image/Webp.net-resizeimage.png" style="width:400px;length:300px;display: block;margin-left: auto; margin-right: auto" />
+         
+         <br /><br /><br /> <br /><br /><br />
+       <table id="t01">
+    
+          <tr>
+            <th>Area ID</th>
+            <th>Name</th> 
+              <th>Location</th> 
+              <th>Price</th> 
+              <th>Weather</th> 
+              <th>Description</th> 
+              <th>Hotel</th> 
+              <th>Hotel Contact</th> 
+              <th>Restaurant</th> 
+
+          </tr>
+
+
+            <tr>
+
+
+          @while (reader.Read())
+        {
+
+            <tr>
+    
+                 <td>@reader[0]</td> 
+                 <td>@reader[1]</td>
+                <td>@reader[2]</td>
+                <td>@reader[3]</td>
+                <td>@reader[4]</td>
+                <td>@reader[5]</td>
+                <td>@reader[6]</td>
+                <td>@reader[7]</td>
+                <td>@reader[8]</td>
+ 
+                </tr>
+
+        }
+
+        </table>
+
+         
+       </body>
+    </html>
+
+
+
+
+<style>
+    h1 {
+        font-size: 50px;
+        color: black;
+        text-shadow: -3px 0 orangered, 0 3px orangered, 3px 0 orangered, 0 -3px orangered;
+    }
+    h2 {
+        font-size: 40px;
+        color: black;
+        text-shadow: -3px 0 orangered, 0 3px orangered, 3px 0 orangered, 0 -3px orangered;
+    }
+
+    p {
+        font-size: 30px;
+        color: white;
+        text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    }
+
+    .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: orange;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active{
+  background-color: #4CAF50;
+  color: white;
+}
+    
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+  color: white;
+}
+
+th {
+  text-align: left;
+}
+
+table {
+  border-spacing: 5px;
+}
+table#t01 {
+   
+  background-color: grey;
+}
+
+</style>

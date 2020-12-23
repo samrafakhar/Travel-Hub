@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "AddArea";
+}
+
+
+@model System.Data.SqlClient.SqlDataReader 
+@{
+    System.Data.SqlClient.SqlDataReader reader = Model;
+}
+
+<html>
+
+
+
+    <body style="background: url(/Content/image/PicMonkey-Collage3.png) ; ">
+        <h1>ADD AREA TO TOUR</h1>
+        <br /><br />
+
+        <h2>Choose from the following Areas: </h2>
+        @while (reader.Read())
+        {
+
+            <p>@reader[0]&nbsp, &nbsp&nbsp</p>
+
+        }
+        <br /><br /><br />
+        <form method="get" action="..\Home\AddAreaToTour">
+               <label for="areaname">Area Name:</label>
+               <input type="text" id="areaname" name="areaname" required/>
+               
+               <input type="submit" value="Add" />
+         </form>
+
+        <br /><br />
+        <button type="button" onclick="window.location.href = 'http://localhost:60555/Home/MoreOptions';">Reservation</button>
+
+        </body>
+
+    </html>
+
+<style>
+   
+    h1 {
+        color: Orangered;
+	font-weight: bold;
+    display: inline-block;
+    margin-left: 18px;
+    padding-top: 10px;
+    font-size: 30px;
+    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+    }
+    h2, body {
+        color: Orangered;
+	font-weight: bold;
+    display: inline-block;
+    margin-left: 18px;
+    padding-top: 10px;
+    font-size: 25px;
+    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+    }
+    
+    input[type=text] {
+            color: #777;
+            padding-left: 10px;
+            margin: 10px;
+            margin-top: 12px;
+            margin-left: 18px;
+            width: 290px;
+            height: 35px;
+	        border: 1px solid #c7d0d2;
+            border-radius: 2px;
+        -webkit-transition: all .4s ease;
+            -moz-transition: all .4s ease;
+            transition: all .4s ease;
+	        }
+     input[type=submit], button {
+          background-color: #F15921;
+          color: #222222;
+          padding: 14px 20px;
+          margin: 8px 0;
+          cursor: pointer;
+          width: 100px;
+          opacity: 0.9;
+          border-radius: 15px;
+          border: 1px solid #ccc;
+          font-weight: bold;
+          text-align: center;
+        }
+
+</style>
+

@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Profile";
+}
+
+@model System.Data.SqlClient.SqlDataReader 
+@{
+    System.Data.SqlClient.SqlDataReader reader = Model;
+}
+
+
+
+<div class="topnav">
+  <a  href="http://localhost:60555/Home/HomePage">Home</a>
+  <a class="active" href="http://localhost:60555/Home/Profile">Profile</a>
+    <a href="http://localhost:60555/Home/ViewAreas">View Areas</a>
+    <a href="http://localhost:60555/Home/CreateTour">Create Tour</a>
+  <a href="http://localhost:60555/Home/ViewTours">Select Tour</a>
+   <a href="http://localhost:60555/Home/CalculateBill">Reservation</a>
+    <a href="http://localhost:60555/Home/Ratings">Ratings</a>
+    <a href="http://localhost:60555/Home/Feedback">Feedback</a>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<html>
+     <body style="background: url(/Content/image/blue-sky.png);background-repeat: repeat-y">
+
+       
+ @if (reader.Read())
+ {
+   
+   
+        <h1>Personal Profile<br /></h1>
+
+           
+            <br /><br />
+            <p> Name: @reader[0]</p>
+           
+            <p>Email: @reader[2]</p>
+           
+            <p>Contact Number: @reader[1]</p>
+            
+            <p>CNIC: @reader[4]</p>
+            
+            <p>Age: @reader[3]</p>
+            <br />
+
+
+        <h2>Previous Visited Areas: <br /></h2>
+   
+ 
+
+ 
+
+
+<table id="t01">
+    <col width="330">
+    <col width="700">
+  <tr>
+    <th>Area Name</th>
+    <th>Description</th> 
+
+  </tr>
+
+
+    <tr>
+   
+       
+              <td>@reader[5]</td> 
+              <td>@reader[6]</td>
+        
+ 
+        </tr>
+
+  @while (reader.Read())
+{
+
+    <tr>
+    
+  <td>@reader[5]</td> 
+  <td>@reader[6]</td>
+ 
+        </tr>
+
+}
+    
+</table>
+ }
+</body>
+
+</html>
+
+
+
+
+
+<style>
+    h1 {
+        font-size: 50px;
+        color: black;
+        
+    }
+    h2 {
+        font-size: 40px;
+        color: black;
+       
+    }
+
+    p {
+        font-size: 30px;
+        color: white;
+        
+    }
+
+    .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a{
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: orange;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active{
+  background-color: #4CAF50;
+  color: white;
+}
+    
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+  color: white;
+}
+
+th {
+  text-align: left;
+}
+
+table {
+  border-spacing: 5px;
+}
+table#t01 {
+   
+  background-color: grey;
+}
+
+</style>

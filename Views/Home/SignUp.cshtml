@@ -1,0 +1,180 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+
+
+
+<div id="id01" class="modal">
+    <form class="modal-content" method="get" action="/Home/AuthenticateSignUp">
+        <div class="header">
+        </div>
+        <div class="container" style="background: url(http://i.dawn.com/primary/2015/04/553e1f38debdb.jpg); ">
+
+            <h1>Sign Up</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr>
+            <label for="email"><b>Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Email" name="email" onchange="checkEmail()" id="em" required>
+            <br>
+
+            <label for="name"><b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Name" name="name" required>
+            <br>
+
+            <label for="age"><b>Age &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Age" name="age" required>
+            <br>
+
+            <label for="Contact"><b>Contact &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter Contact Number" name="contact" required>
+            <br>
+
+            <label for="CNIC"><b>CNIC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="text" placeholder="Enter CNIC" name="cnic" onchange="checkCNIC()" id="cnic" required>
+            <br>
+
+            <label for="psw"><b>Password &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <input type="password" placeholder="Enter Password" onchange="checkLength()" id="passwd" name="pwd" required>
+            <br>
+
+            <label for="psw-repeat"><b>Repeat Password &nbsp;</b></label>
+            <input type="password" placeholder="Repeat Password" onchange="Validate()" name="psw-repeat" id="repeatpwd" required>
+            <br>
+
+            <label for="psw"><b>Date of Birth: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+
+            <input type="date" name="date">
+
+            <br>
+            <label>
+                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+            </label>
+            <div class="clearfix">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp<button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+        </div>
+    </form>
+
+
+    <style>
+        #container {
+    position: fixed;
+    width: 340px;
+    height: 280px;
+    top: 55%;
+    left: 70%;
+    margin-top: -140px;
+    margin-left: -170px;
+	background: #58575A;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+form {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+label {
+    color: #F15921;
+	font-weight: bold;
+    display: inline-block;
+    margin-left: 18px;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+
+        h1, p {
+            color: #F15921;
+	font-weight: bold;
+    display: inline-block;
+    margin-left: 18px;
+    padding-top: 10px;
+    font-size: 24px;
+
+        }
+
+input[type=text] {
+    color: #777;
+    padding-left: 10px;
+    margin: 10px;
+    margin-top: 12px;
+    margin-left: 18px;
+    width: 290px;
+    height: 35px;
+	border: 1px solid #c7d0d2;
+    border-radius: 2px;
+-webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    transition: all .4s ease;
+	}
+input[type=text]:hover {
+    border: 1px solid #b6bfc0;
+}
+input[type=text]:focus {
+    border: 1px solid #a8c9e4;
+}
+#lower {
+    background: #F15921;
+    width: 100%;
+    height: 72px;
+    margin-top: 20px;
+	box-shadow: inset 0 1px 1px #fff;
+    border-top: 1px solid #ccc;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+button {
+  background-color: #F15921;
+  color: #222222;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 150px;
+  opacity: 0.9;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  text-align: top-center;
+}
+/* Float cancel and signup buttons and add an equal width */
+
+          </style>
+
+</div>
+
+    <script type="text/javascript">
+        function checkLength() {
+
+            var passwordValue = $("#passwd").val();
+            if (passwordValue.length < 8) {
+                alert("Length of Password must meet the requirement.");
+            }
+        }
+
+        function checkCNIC() {
+            var c = $("#cnic").val();
+
+            if (c.length < 13) {
+                alert("You have entered an invalid CNIC!")
+                return false;
+            }
+            var letterNumber = /^[0-9]+$/;
+            if (isNaN(c)) {
+                alert("Invalid CNIC");
+                return false;
+            }
+
+
+            return true;
+        }
+        function Validate() {
+            var password = $("#passwd").val();
+            var confirmPassword = $("#repeatpwd").val();
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+        
+    </script>

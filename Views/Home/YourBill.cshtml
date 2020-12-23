@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "YourBill";
+}
+
+@model System.Data.SqlClient.SqlDataReader 
+@{
+    System.Data.SqlClient.SqlDataReader reader = Model;
+}
+
+<html>
+    <body>
+        <img src="/Content/image/Webp.net-resizeimage.png" style="width:400px;length:300px;display: block;margin-left: auto; margin-right: auto" />
+
+        <h1>Billing Information</h1>
+
+        <h2>Your bill is: </h2>
+        @if(reader.Read()){
+            <h3> @reader[0]</h3>
+        }
+        <br /><br />
+
+        <h3>Your tickets have been reserved <br /></h3>
+        <h3>Please visit your nearest Faisal Bank and deposit the amount to the account number 0000 0011 2345 6702
+            for confirmation. You will be provided further details from our representative. 
+        </h3>
+
+        <button type="button" onclick="window.location.href = 'http://localhost:60555/Home/CurrencyConversion';">Convert Currency</button>
+        <button type="button" onclick="window.location.href = 'http://localhost:60555/Home/HomePage';">Home</button>
+    </body>
+</html>
+
+
+<style>
+    html, body {
+        background-color: lightgray;
+    }
+    button {
+  background-color: #F15921;
+  color: #222222;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 150px;
+  opacity: 0.9;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  text-align: top-center;
+}
+/* Float cancel and signup buttons and add an equal width */
+
+</style>
+

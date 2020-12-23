@@ -1,0 +1,137 @@
+﻿@{
+    ViewBag.Title = "CalculateBill";
+}
+
+
+<div class="topnav">
+  <a href="http://localhost:60555/Home/HomePage">Home</a>
+  <a href="http://localhost:60555/Home/Profile">Profile</a>
+    <a href="http://localhost:60555/Home/ViewAreas">View Areas</a>
+    <a href="http://localhost:60555/Home/CreateTour">Create Tour</a>
+  <a href="http://localhost:60555/Home/ViewTours">Select Tour</a>
+  <a class="active" href="http://localhost:60555/Home/CalculateBill">Reservation</a>
+    <a  href="http://localhost:60555/Home/Ratings">Ratings</a>
+    <a href="http://localhost:60555/Home/Feedback">Feedback</a>
+    
+
+</div>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    
+    <title>Travel Hub</title>
+    </head>
+    
+   
+    <body >
+        <img src="/Content/image/Webp.net-resizeimage.png" style="width:400px;length:300px;display: block;margin-left: auto; margin-right: auto" />
+        <br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <form method="get" action="..\Home\BillCalculation">
+               <label for="tourid">Tour ID :</label>
+               <input type ="text" id="tour" name="tour" required/>
+
+              <label for="people">Number of people :</label>
+               <input type ="text" onchange="check()" id="noOfPeople" name="noOfPeople" required/>
+               
+               &nbsp;&nbsp;
+               <input type="submit" value="Reserve" />
+         </form>
+
+
+    </body>
+
+    </html>
+
+ <style>
+
+     input.break {
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 80px;
+}
+     
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            color: lightgrey;
+            -webkit-font-smoothing: antialiased;
+            background: black;
+            background-image: url('/Content/image/shangrila-resort-skardu-pakistan.png');
+            
+            background-repeat: no-repeat;
+            background-size: 100% 70%;
+        }
+           .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: orange;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+        input[type=text] {
+            color: #777;
+            padding-left: 10px;
+            margin: 10px;
+            margin-top: 5px;
+            margin-left: 18px;
+            width: 290px;
+            height: 35px;
+	        border: 1px solid #c7d0d2;
+            border-radius: 2px;
+	        }
+
+        input[type=submit] {
+          background-color: #F15921;
+          color: #222222;
+          padding: 14px 20px;
+          margin: 8px 0;
+          cursor: pointer;
+          width: 100px;
+          opacity: 0.9;
+          border-radius: 15px;
+          border: 1px solid #ccc;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        button:hover {
+          opacity:1;
+        }
+    
+    </style>
+
+<script>
+    function check() {
+        var num = $("#ppl").val();
+        if (num > 10) {
+            alert("Too many people");
+            return false;
+        }
+
+    }
+</script>

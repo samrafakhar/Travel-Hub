@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "MoreOptions";
+}
+
+
+
+
+<html>
+    <body style="background: url(/Content/image/18387685.png) ; ">
+         <img src="/Content/image/Webp.net-resizeimage.png" style="width:400px;length:300px;display: block;margin-left: auto; margin-right: auto" />
+
+           <h2>More Options</h2>
+        <form method="get" action="..\Home\reserveTour">
+               <label for="people">Number of People:</label>
+               <input type="text" onchange="check()" id="ppl" name="noOfPeople" required/>
+               &nbsp;&nbsp;
+               <input type="submit" value="Reserve Tickets" />
+         </form>
+
+        <br /><br /><br />
+
+ 
+        <button type="button" onclick="window.location.href = 'http://localhost:60555/Home/AddArea';">Add Area</button>
+
+        <br /><br />
+        <form method="get" action="..\Home\CheckNewTour">
+            <input type="submit" value="Home" />
+        <br />
+         </form>
+        Note: if you dont reserve tickets for your newly created tour right now, it will be deleted. 
+           
+
+</body>
+</html>
+
+
+<style>
+    
+    html, body {
+            color: black;
+	font-weight: bold;
+    display: inline-block;
+    margin-left: 18px;
+    padding-top: 10px;
+    font-size: 24px;
+
+        }
+
+input[type=text] {
+    color: #777;
+    padding-left: 10px;
+    margin: 10px;
+    margin-top: 12px;
+    margin-left: 18px;
+    width: 290px;
+    height: 35px;
+	border: 1px solid #c7d0d2;
+    border-radius: 2px;
+-webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    transition: all .4s ease;
+	}
+input[type=text]:hover {
+    border: 1px solid #b6bfc0;
+}
+input[type=text]:focus {
+    border: 1px solid #a8c9e4;
+}
+
+ input[type=submit], button {
+          background-color: #F15921;
+          color: #222222;
+          padding: 14px 20px;
+          margin: 8px 0;
+          cursor: pointer;
+          width: 300px;
+          opacity: 0.9;
+          border-radius: 15px;
+          border: 1px solid #ccc;
+          font-weight: bold;
+          text-align: center;
+        }
+
+ 
+</style>
+
+<script>
+    function check() {
+        var num = $("#ppl").val();
+        if (num > 10) {
+            alert("Too many people");
+            return false;
+        }
+
+    }
+</script>

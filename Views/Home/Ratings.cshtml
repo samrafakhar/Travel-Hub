@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Ratings";
+}
+@model System.Data.SqlClient.SqlDataReader 
+@{
+    System.Data.SqlClient.SqlDataReader reader = Model;
+}
+
+
+
+<div class="topnav">
+  <a href="http://localhost:60555/Home/HomePage">Home</a>
+  <a href="http://localhost:60555/Home/Profile">Profile</a>
+    <a href="http://localhost:60555/Home/ViewAreas">View Areas</a>
+    <a href="http://localhost:60555/Home/CreateTour">Create Tour</a>
+  <a href="http://localhost:60555/Home/ViewTours">Select Tour</a>
+
+   <a href="http://localhost:60555/Home/CalculateBill">Reservation</a>
+    <a class="active" href="http://localhost:60555/Home/Ratings">Ratings</a>
+    <a href="http://localhost:60555/Home/Feedback">Feedback</a>
+    
+
+</div>
+
+
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    
+    <title>Travel Hub</title>
+    </head>
+    
+   
+    <body >
+        <img src="/Content/image/Webp.net-resizeimage.png" style="width:400px;length:300px;display: block;margin-left: auto; margin-right: auto" />
+        <br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+         <h1>Ratings</h1>
+          <br /><br />
+
+    </body>
+
+    </html>
+
+ <style>
+     
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            color: lightgrey;
+            -webkit-font-smoothing: antialiased;
+            background: black;
+            background-image: url('/Content/image/photo-1470756544705-1848092fbe5f.png');
+            
+            background-repeat: no-repeat;                                                                           
+            background-size: 100% 70%;                                                                                  
+        }
+           .topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: orange;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+        input[type=text] {
+            color: #777;
+            padding-left: 10px;
+            margin: 10px;
+            margin-top: 12px;
+            margin-left: 18px;
+            width: 290px;
+            height: 35px;
+	        border: 1px solid #c7d0d2;
+            border-radius: 2px;
+        -webkit-transition: all .4s ease;
+            -moz-transition: all .4s ease;
+            transition: all .4s ease;
+	        }
+
+        input[type=submit] {
+          background-color: #F15921;
+          color: #222222;
+          padding: 14px 20px;
+          margin: 8px 0;
+          cursor: pointer;
+          width: 100px;
+          opacity: 0.9;
+          border-radius: 15px;
+          border: 1px solid #ccc;
+          font-weight: bold;
+          text-align: center;
+        }
+
+        button:hover {
+          opacity:1;
+        }
+    
+    </style>
+
+
+@while (reader.Read())
+{
+
+  <h3> Name: &nbsp;&nbsp; @reader[0]<br />
+       Area:  &nbsp;&nbsp; @reader[1] <br />
+      Rating: &nbsp;&nbsp; @reader[2] <br />
+       Comments: &nbsp;&nbsp; @reader[3] <br />
+      <br /><br />
+  </h3>
+
+}
+
+
+<html>
+    <body>
+
+            <br /><br />
+            <h2> Add A Rating <br /></h2>
+
+
+        <form method="get" action="..\Home\Rating">
+               <label for="areaname">Area:</label>
+               <input type="text" id="areaname" name="areaname" required/>
+               <label for="rate">Rating:</label>
+               <input type="text" onchange="check()" id="rate" name="rate" required/>
+
+               <label for="comments">Comments:</label>
+               <input type="text" id="comments" name="comments" required/>
+               &nbsp;&nbsp;
+               <input type="submit" value="Post" />
+         </form>
+
+           
+
+</body>
+</html>
+
+<script>
+    
+    function check() {
+        var num = $("#rate").val();
+        if (num > 10 || num < 0) {
+            alert("Invalid rating");
+            return false;
+        }
+
+    }
+</script>
+
+
+
